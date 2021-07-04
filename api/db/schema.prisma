@@ -1,0 +1,102 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = "native"
+}
+
+// Define your own datamodels here and run `yarn redwood db save` to create
+// migrations for them.
+
+model Post {
+  id       Int @id @default(autoincrement())
+  title    String
+  slug     String @unique
+  author   String
+  body     String
+  image    String?
+  tags     Tag[]
+  postedAt DateTime?
+}
+
+model Tag {
+  id     Int @id @default(autoincrement())
+  name   String @unique
+  posts  Post[]
+}
+
+model User {
+  id Int  @id @default(autoincrement())
+  name    String?
+  email   String @unique
+  isAdmin Boolean @default(false)
+}
+
+
+
+model Person {
+  personId    				Int     	@id @default(autoincrement())
+
+  fatherId    				Int
+  father      				Person?		@relation("FatherRelationShip", fields: [fatherId], references: [personId])
+  fatherDefined 			Person?   	@relation("FatherRelationShip")
+
+  motherId    				Int
+  mother      				Person?		@relation("MotherRelationShip", fields: [motherId], references: [personId])
+  motherDefined 			Person?   	@relation("MotherRelationShip")
+
+  @@unique([fatherId, motherId])
+
+  name  	  				String
+  husbandMarriage 			Marriages[]	 @relation("HusbandRelationShip")
+  wifeMarriage 				Marriages[]	 @relation("WifeRelationShip")
+
+  association1 				Association[]	 @relation("Person1RelationShip")
+  association2 				Association[]	 @relation("Person2RelationShip")
+
+  notes			String
+  //birthDate	  DateTime?
+  //email 	  String?  @unique
+}
+
+
+  //marriageDate	  DateTime?
+
+
+
+
+
+
+
+
+
+model Marriages {
+  marriageId   	Int     	@id @default(autoincrement())
+
+  husbandId    	Int
+  husband      	 Person?		@relation("HusbandRelationShip", fields: [husbandId], references: [personId])
+
+  wifeId    	Int
+  wife      	Person?		@relation("WifeRelationShip", fields: [wifeId], references: [personId])
+
+  notes			String
+  //birthDate	  DateTime?
+}
+
+
+
+model Association { //anh chi em cung cha khac me to setup relationship
+  relationshipId   	Int     	@id @default(autoincrement())
+
+  persion1Id    	Int
+  persion1      	Person?		@relation("Person1RelationShip", fields: [persion1Id], references: [personId])
+
+  persion2Id    	Int
+  persion2      	Person?		@relation("Person2RelationShip", fields: [persion2Id], references: [personId])
+
+  notes			String
+  //birthDate	  DateTime?
+}
