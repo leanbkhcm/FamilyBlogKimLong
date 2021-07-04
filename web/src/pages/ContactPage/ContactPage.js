@@ -32,10 +32,7 @@ const ContactPage = () => {
 
   return (
     <main className="text-left py-6 font-light">
-      <p className="text-lg">
-        Do you have a hammer you want us to review? Suggestions for improving
-        our reviews? Send us a message!
-      </p>
+      <p className="text-lg">Send us a message!!!!!</p>
 
       <Form
         onSubmit={onSubmit}

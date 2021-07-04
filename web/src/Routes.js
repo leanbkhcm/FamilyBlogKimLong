@@ -5,17 +5,17 @@ import AdminLayout from 'src/layouts/AdminLayout'
 const Routes = () => {
   return (
     <Router>
-      <Private unauthenticated="home">
-        <Set wrap={AdminLayout}>
-          <Route path="/admin" page={AdminPostsPage} name="admin" />
-          <Route path="/admin/new" page={AdminNewPostPage} name="adminNew" />
-          <Route
-            path="/admin/{id}/edit"
-            page={AdminEditPostPage}
-            name="adminEdit"
-          />
-        </Set>
-      </Private>
+      {/* <Private unauthenticated="home"> */}
+      <Set wrap={AdminLayout}>
+        <Route path="/admin" page={AdminPostsPage} name="admin" />
+        <Route path="/admin/new" page={AdminNewPostPage} name="adminNew" />
+        <Route
+          path="/admin/{id}/edit"
+          page={AdminEditPostPage}
+          name="adminEdit"
+        />
+      </Set>
+      {/* </Private> */}
 
       <Set wrap={BlogLayout}>
         <Route path="/" page={HomePage} name="home" prerender />

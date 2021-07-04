@@ -74,7 +74,7 @@ export const postsCount = () => {
 }
 
 export const createPost = ({ input }, { context: { currentUser } }) => {
-  requireAuth()
+  //requireAuth() //anle temp remove
   validate(input)
 
   return db.post.create({ data: input })

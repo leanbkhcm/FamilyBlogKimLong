@@ -23,7 +23,7 @@ const InlineLoader = () => {
           ></path>
         </svg>
       </div>
-      <span>Loading</span>
+      <span>Loading hello 1</span>
     </div>
   )
 }
