@@ -30,7 +30,8 @@ const PostForm = (props) => {
 
   const onSubmit = (data) => {
     const type = document.activeElement.dataset.action
-    props.onSave(Object.assign(data, { image: splashImage }), type)
+    props.onSave(Object.assign(data), type)
+    //props.onSave(Object.assign(data, { image: splashImage }), type) //original
     event.preventDefault()
   }
 
@@ -108,7 +109,7 @@ const PostForm = (props) => {
       <FieldError name="body" className={CSS.error} />
 
       <label className={CSS.label}>Splash Image</label>
-
+{/*
       <ReactFilestack
         apikey={process.env.FILESTACK_API_KEY}
         onSuccess={onFileUpload}
@@ -120,7 +121,7 @@ const PostForm = (props) => {
           container: 'embedded',
           fromSources: ['local_file_system', 'url'],
         }}
-      />
+      /> */}
 
       <div
         id="embedded"

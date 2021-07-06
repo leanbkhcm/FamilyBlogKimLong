@@ -34,6 +34,7 @@ const NewPost = () => {
     <div>
       <h1 className="text-2xl font-semibold text-gray-600">New Post</h1>
       <div className="mt-8">
+        {/* <PostForm/> */}
         <PostForm save={true} onSave={onSave} loading={loading} error={error} />
       </div>
     </div>

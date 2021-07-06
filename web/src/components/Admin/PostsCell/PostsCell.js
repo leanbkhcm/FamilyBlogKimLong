@@ -20,7 +20,7 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <div>Loading PostsList...</div>
 
 export const Success = ({ allPosts }) => {
   return <PostsList posts={allPosts.posts} />

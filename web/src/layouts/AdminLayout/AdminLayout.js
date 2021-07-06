@@ -53,7 +53,7 @@ const AdminLayout = (props) => {
                   to={routes.adminNew()}
                   className="bg-indigo-700 hover:bg-indigo-600 text-white text-xs px-3 py-2 uppercase tracking-wide rounded"
                 >
-                  + New Post at here
+                  + New Post at here 123
                 </Link>
               </li>
             </ul>
